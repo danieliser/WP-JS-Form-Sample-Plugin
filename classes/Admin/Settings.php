@@ -208,7 +208,9 @@ class Settings {
 <li>Easy form / settings management. Add fields with a few extra lines in an array.</li>
 <li>If you already manage fields in an array (EDD, Popup Maker) you can easily port to this new rendering method.</li>
 <li>Lots of powerful custom fields including post type search fields, link pickers, license keys,  color pickers, rangesliders & even a boolean based targerting/conditions manager.</li>
+<li>Includes modal forms that also allow tab/subtab combinations (example coming soon). These are generated on the fly from the same types of field arrays as this form.</li>
 <li>Field dependency management, inline documentation & great default styles mean you spend less time crafting forms & more time creating awesome features.</li>
+<li>Also included is a simple to use Options class for storing & retrieving your settings in single wp_option row. Though this interface can easily be manipulated for post meta boxes as well.</li>
 </ul>',
 						),
 						'tabs_heading' => array(
