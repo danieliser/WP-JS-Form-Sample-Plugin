@@ -1,0 +1,18 @@
+/*!
+ * @copyright   Copyright (c) 2017, Code Atlantic
+ * @author      Daniel Iser
+ */
+
+$plugin_prefix: 'wpjsfsp';
+$custom_select2_selector: 'wpjsfselect2';
+$tab-color: #E4E4E4;
+
+// Shared modules.
+@import 'modules/general';
+@import 'modules/fields';
+@import 'modules/select2';
+@import 'modules/tabs';
+@import 'modules/modal';
+
+// Custom pages.
+@import 'partials/admin/settings';

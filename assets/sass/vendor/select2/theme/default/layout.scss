@@ -1,0 +1,97 @@
+.wpjsfselect2-container--default {
+  @import "single";
+  @import "multiple";
+
+  &.wpjsfselect2-container--open.wpjsfselect2-container--above {
+    .wpjsfselect2-selection--single, .wpjsfselect2-selection--multiple {
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+    }
+  }
+
+  &.wpjsfselect2-container--open.wpjsfselect2-container--below {
+    .wpjsfselect2-selection--single, .wpjsfselect2-selection--multiple {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
+
+  .wpjsfselect2-search--dropdown {
+    .wpjsfselect2-search__field {
+      border: 1px solid #aaa;
+    }
+  }
+
+  .wpjsfselect2-search--inline {
+    .wpjsfselect2-search__field {
+      background: transparent;
+      border: none;
+      outline: 0;
+      box-shadow: none;
+      -webkit-appearance: textfield;
+    }
+  }
+
+  .wpjsfselect2-results > .wpjsfselect2-results__options {
+    max-height: 200px;
+    overflow-y: auto;
+  }
+
+  .wpjsfselect2-results__option {
+    &[role=group] {
+      padding: 0;
+    }
+
+    &[aria-disabled=true] {
+      color: #999;
+    }
+
+    &[aria-selected=true] {
+      background-color: #ddd;
+    }
+
+    .wpjsfselect2-results__option {
+      padding-left: 1em;
+
+      .wpjsfselect2-results__group {
+        padding-left: 0;
+      }
+
+      .wpjsfselect2-results__option {
+        margin-left: -1em;
+        padding-left: 2em;
+
+        .wpjsfselect2-results__option {
+          margin-left: -2em;
+          padding-left: 3em;
+
+          .wpjsfselect2-results__option {
+            margin-left: -3em;
+            padding-left: 4em;
+
+            .wpjsfselect2-results__option {
+              margin-left: -4em;
+              padding-left: 5em;
+
+              .wpjsfselect2-results__option {
+                margin-left: -5em;
+                padding-left: 6em;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .wpjsfselect2-results__option--highlighted[aria-selected] {
+    background-color: #5897fb;
+    color: white;
+  }
+
+  .wpjsfselect2-results__group {
+    cursor: default;
+    display: block;
+    padding: 6px;
+  }
+}

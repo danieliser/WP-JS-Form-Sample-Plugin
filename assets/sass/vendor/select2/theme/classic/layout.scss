@@ -1,0 +1,64 @@
+@import "defaults";
+@import "../../mixins/gradients";
+
+.wpjsfselect2-container--classic {
+  @import "single";
+  @import "multiple";
+
+  .wpjsfselect2-search--dropdown {
+    .wpjsfselect2-search__field {
+      border: 1px solid $border-color;
+      outline: 0;
+    }
+  }
+
+  .wpjsfselect2-search--inline {
+    .wpjsfselect2-search__field {
+      outline: 0;
+      box-shadow: none;
+    }
+  }
+
+  .wpjsfselect2-dropdown {
+    background-color: $dropdown-bg-color;
+    border: 1px solid transparent;
+  }
+
+  .wpjsfselect2-dropdown--above {
+    border-bottom: none;
+  }
+
+  .wpjsfselect2-dropdown--below {
+    border-top: none;
+  }
+
+  .wpjsfselect2-results > .wpjsfselect2-results__options {
+    max-height: $results-max-height;
+    overflow-y: auto;
+  }
+
+  .wpjsfselect2-results__option {
+    &[role=group] {
+      padding: 0;
+    }
+
+    &[aria-disabled=true] {
+      color: $results-choice-fg-unselectable-color;
+    }
+  }
+
+  .wpjsfselect2-results__option--highlighted[aria-selected] {
+    background-color: $results-choice-bg-hover-color;
+    color: $results-choice-fg-hover-color;
+  }
+
+  .wpjsfselect2-results__group {
+    cursor: default;
+    display: block;
+    padding: 6px;
+  }
+
+  &.wpjsfselect2-container--open .wpjsfselect2-dropdown {
+    border-color: $focus-border-color;
+  }
+}

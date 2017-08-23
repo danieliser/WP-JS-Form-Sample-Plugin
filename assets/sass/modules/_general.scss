@@ -1,0 +1,26 @@
+/*!
+ * @copyright   Copyright (c) 2017, Code Atlantic
+ * @author      Daniel Iser
+ */
+
+button.no-button {
+  border: 0;
+  padding: 0;
+  background: none;
+  cursor: pointer;
+
+  &.link-button {
+    color: #0073aa;
+    &:hover {
+      color: #00a0d2;
+    }
+  }
+
+  &.delete-button {
+    color: #a00;
+    &:hover {
+      color: #f00;
+    }
+  }
+}
+
