@@ -1,3 +1,5 @@
+![standard field types](https://raw.githubusercontent.com/danieliser/WP-JS-Form-Sample-Plugin/master/screenshots/3.png)
+
 Having built many interfaces in WordPress over the past 7 years I recently built this as a quick start to any project when admin forms are needed. It is built mostly in JavaScript but fields are easily passed from PHP as in this example. Features are too many to name but include:
 
 - Easy form / settings management. Add fields with a few extra lines in an array.
