@@ -420,9 +420,10 @@
         .on('wpjsfspFieldChanged', '.wpjsfsp-field-dynamic-desc', function () {
             var $this       = $(this),
                 $input      = $this.find(':input'),
+                $container  = $this.parents('.ahoy-dynamic-form:first'),
                 val         = $input.val(),
-                form_fields = $this.data('form_fields') || {},
-                field       = window.wpjsfsp_settings_fields[$this.data('id')] || {},
+                form_fields = $container.data('form_fields') || {},
+                field       = form_fields[$this.data('id')] || {},
                 $desc       = $this.find('.wpjsfsp-desc'),
                 desc        = $this.data('wpjsfsp-dynamic-desc');
 
