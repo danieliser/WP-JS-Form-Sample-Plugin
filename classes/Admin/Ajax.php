@@ -53,7 +53,7 @@ class Ajax {
 				$post_type = ! empty( $_REQUEST['object_key'] ) ? $_REQUEST['object_key'] : 'post';
 				$args      = array(
 					's'              => ! empty( $_REQUEST['s'] ) ? $_REQUEST['s'] : null,
-					'post__in'       => ! empty( $_REQUEST['include'] ) ? array_map( 'intval', $_REQUEST['include'] ) : null,
+					'post__in'       => ! empty( $_REQUEST['include'] ) ? array_map( 'intval', (array) $_REQUEST['include'] ) : null,
 					'page'           => ! empty( $_REQUEST['page'] ) ? absint( $_REQUEST['page'] ) : null,
 					'posts_per_page' => 10,
 				);

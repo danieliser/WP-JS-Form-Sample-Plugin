@@ -9,11 +9,11 @@
         init: function () {
             $('.wpjsfsp-field-select2 select').filter(':not(.select2-initialized)').each(function () {
 
-                var $this       = $(this),
-                    current     = $this.data('current') || $this.find('option[selected="selected"]').attr('value'),
+                var $this = $(this),
+                    current = $this.data('current') || $this.find('option[selected="selected"]').attr('value'),
                     object_type = $this.data('objecttype'),
-                    object_key  = $this.data('objectkey'),
-                    options     = {
+                    object_key = $this.data('objectkey'),
+                    options = {
                         width: '100%',
                         multiple: false,
                         dropdownParent: $this.parent()
@@ -81,14 +81,14 @@
                     current = null;
                 }
 
-                if (object_type && object_key && current !== null && current.length) {
+                if (object_type && object_key && current !== null && (typeof current === 'number' || current.length)) {
                     $.ajax({
                         url: ajaxurl,
                         data: {
                             action: "wpjsfsp_object_search",
                             object_type: object_type,
                             object_key: object_key,
-                            include: current && current.length ? current : null
+                            include: current && current.length ? ((typeof current === 'string' || typeof current === 'number') ? current : [current]) : null
                         },
                         dataType: "json",
                         success: function (data) {

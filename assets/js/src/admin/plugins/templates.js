@@ -218,7 +218,7 @@
                     data.classes.push(args.type === 'postselect' ? 'wpjsfsp-field-postselect' : 'wpjsfsp-field-taxonomyselect');
                     data.meta['data-objecttype'] = args.type === 'postselect' ? 'post_type' : 'taxonomy';
                     data.meta['data-objectkey'] = args.type === 'postselect' ? args.post_type : args.taxonomy;
-                    data.meta['data-current'] = JSON.stringify(data.value);
+                    data.meta['data-current'] = typeof data.value === 'object' || Array.isArray(data.value) ? JSON.stringify(data.value) : data.value;
                 }
 
                 if (data.select2) {
