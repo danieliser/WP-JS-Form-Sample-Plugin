@@ -1,6 +1,5 @@
+"use strict";
 (function ($) {
-    "use strict";
-
 
     var forms = {
         init: function () {
@@ -80,17 +79,13 @@
 
                 $(dependentFields).each(function () {
                     var $wrapper                   = $(this),
-                        $field                     = $(this).find(':input:first'),
+                        $field                     = $wrapper.find(':input:first'),
                         id                         = $wrapper.data("id"),
                         value                      = $field.val(),
-                        required                   = dependencies[id] || null,
+                        required                   = dependencies[id],
                         matched,
                         // Used for limiting the fields that get updated when this field is changed.
-                        all_this_fields_dependents = $wrapper.data('wpjsfsp-field-dependents');
-
-                    if (!all_this_fields_dependents) {
-                        all_this_fields_dependents = [];
-                    }
+                        all_this_fields_dependents = $wrapper.data('wpjsfsp-field-dependents') || [];
 
                     if (all_this_fields_dependents.indexOf(dependentID) === -1) {
                         all_this_fields_dependents.push(dependentID);
@@ -98,7 +93,7 @@
                     }
 
                     // If no required values found bail early.
-                    if (required === null) {
+                    if (typeof required === 'undefined' || required === null) {
                         $dependent.hide();
                         // Effectively breaks the .each for this $dependent and hides it.
                         return false;
@@ -110,7 +105,7 @@
 
                     // Check if the value matches required values.
                     if ($wrapper.hasClass('wpjsfsp-field-select') || $wrapper.hasClass('wpjsfsp-field-radio')) {
-                        matched = required.indexOf(value) !== -1;
+                        matched = required && required.indexOf(value) !== -1;
                     } else if ($wrapper.hasClass('wpjsfsp-field-checkbox')) {
                         matched = required === $field.is(':checked');
                     } else {
@@ -420,7 +415,7 @@
         .on('wpjsfspFieldChanged', '.wpjsfsp-field-dynamic-desc', function () {
             var $this       = $(this),
                 $input      = $this.find(':input'),
-                $container  = $this.parents('.ahoy-dynamic-form:first'),
+                $container  = $this.parents('.wpjsfsp-dynamic-form:first'),
                 val         = $input.val(),
                 form_fields = $container.data('form_fields') || {},
                 field       = form_fields[$this.data('id')] || {},
